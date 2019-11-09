@@ -20,4 +20,20 @@ function EventedThing () {
   this._listen = {};
 }
 
+EventedThing.prototype.on = function (event,handler) {
+  return handler(event);
+};
+
+EventedThing.prototype.trigger = function (event, reaction) {
+  if (reaction) {
+    return 'the event was '+ event + ' so the reaction should be ' + reaction;
+  }
+};
+
+var instance1 = new EventedThing();
+// console.log(instance1.trigger('Cipi', 'say hi'));
+// console.log(instance1.on('Cipi', function (event) {
+//   return 'nice to meet you, '+ event;
+// }))
+
 module.exports = new EventedThing;
