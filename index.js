@@ -30,10 +30,29 @@ EventedThing.prototype.trigger = function (event, reaction) { //if reaction is n
   }
 };
 
+class EventedThing1 {
+  constructor () {
+    this._listen = {};
+  }
+  on (event,handler) {
+    return handler(event);
+  }
+  trigger (event, reaction) {
+    if (reaction) {
+      return 'the event was '+ event + ' so the reaction should be ' + reaction;
+    }
+  }
+}
+
 var instance1 = new EventedThing();
 // console.log(instance1.trigger('Cipi', 'say hi'));
 // console.log(instance1.on('Cipi', function (event) {
 //   return 'nice to meet you, '+ event;
 // }))
+var instance2 = new EventedThing1();
+// console.log(instance2.on('Ivan', function (event) {
+//   return 'If you see ' + event+ ' be happy'
+// }))
+// console.log(instance2.trigger('puppies', 'smile'))
 
 module.exports = new EventedThing;
