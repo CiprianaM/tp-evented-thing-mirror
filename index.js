@@ -17,14 +17,14 @@
 
 
 function EventedThing () {
-  this._listen = {};
+  this._listen = {}; // why is it returning and empty object?
 }
 
 EventedThing.prototype.on = function (event,handler) {
   return handler(event);
 };
 
-EventedThing.prototype.trigger = function (event, reaction) {
+EventedThing.prototype.trigger = function (event, reaction) { //if reaction is not provided, what does it mean nothing happens?
   if (reaction) {
     return 'the event was '+ event + ' so the reaction should be ' + reaction;
   }
